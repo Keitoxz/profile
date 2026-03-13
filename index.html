@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3 id="status">Checking connection...</h3>
+
+    <script>
+      // ✅ test connection
+      fetch("https://ip-logger.linusaldrich-bustamante.workers.dev/ping")
+        .then(res => res.text())
+        .then(text => {
+          document.getElementById("status").innerText = "Worker OK: " + text;
+        })
+        .catch(() => {
+          document.getElementById("status").innerText = "Worker FAILED";
+        });
+
+      // ✅ trigger IP logging
+      fetch("https://ip-logger.linusaldrich-bustamante.workers.dev/");
+    </script>
+  </body>
+</html>
